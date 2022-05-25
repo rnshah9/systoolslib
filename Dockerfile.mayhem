@@ -1,0 +1,12 @@
+FROM --platform=linux/amd64 ubuntu:20.04
+
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y vim less man
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential
+
+COPY . /repo
+WORKDIR /repo/C/SysLib
+RUN make -j8
+RUN make install
+WORKDIR /repo
+RUN make -j8
