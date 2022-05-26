@@ -1,7 +1,5 @@
 project: rnshah9/systoolslib
-target: systoolslib
-image: ghcr.io/rnshah9/playground:systoolslib
+target: trim
 
 cmds:
   - cmd: /repo/C/SRC/bin/Linux.x86_64/trim @@
- #    filepath: /test.c
