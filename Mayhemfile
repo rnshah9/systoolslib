@@ -1,4 +1,4 @@
-project: rnshah9/systoolslib
+project: systoolslib
 target: trim
 
 cmds:
