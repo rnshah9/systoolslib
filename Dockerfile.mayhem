@@ -5,16 +5,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential
 
 COPY . /repo
 WORKDIR /repo/C/SysLib
+ENV DESTDIR=/install
 RUN make -j8
 RUN make install
 WORKDIR /repo
 RUN make -j8
-
-RUN mkdir -p /deps
-RUN ldd /repo/C/SRC/bin/Linux.x86_64/trim | tr -s '[:blank:]' '\n' | grep '^/' | xargs -I % sh -c 'cp % /deps;'
+RUN make install
 
 FROM ubuntu:20.04 as package
-
-COPY --from=builder /deps /deps
-COPY --from=builder /repo/C/SRC/bin/Linux.x86_64/trim /repo/C/SRC/bin/Linux.x86_64/trim
-ENV LD_LIBRARY_PATH=/deps
+COPY --from=builder /install /install

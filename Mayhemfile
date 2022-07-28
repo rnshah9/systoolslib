@@ -2,4 +2,4 @@ project: systoolslib
 target: trim
 
 cmds:
-  - cmd: /repo/C/SRC/bin/Linux.x86_64/trim @@
+  - cmd: /install/usr/local/bin/trim @@
