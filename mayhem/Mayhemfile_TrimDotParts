@@ -1,0 +1,5 @@
+project: systoolslib
+target: trimdotparts
+
+cmds:
+  - cmd: /fuzz_TrimDotParts
